@@ -16,7 +16,7 @@ const resolvers = {
     },
 
     Mutation: {
-        
+
         addUser: async (parent, { username, email, password }) => {
             const user = await User.create({ username, email, password });
             const token = signToken(user);
@@ -39,11 +39,22 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        addFriend: async (parent, { friendId }, context) => {
+        saveBook: async (parent, { saveBookId }, context) => {
+            if (context.user) {
+                const updatedUser = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { savedBooks: saveBookId } },
+                    { new: true }
+                ).populate('savedBooks');
+
+                return updatedUser;
+            }
+        },
+        saveBook: async (parent, { saveBookId }, context) => {
             if (context.user) {
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $addToSet: { friends: friendId } },
+                    { $addToSet: { savedBooks: saveBookId } },
                     { new: true }
                 ).populate('friends');
 
