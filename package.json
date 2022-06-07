@@ -1,0 +1,40 @@
+{
+  "name": "merning_is_fun",
+  "version": "1.0.0",
+  "description": "MERN Challenge: Book Search Engine - Challenge 21",
+  "main": "server.server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "develop": "cd server && npm run watch && cd client && npm start",
+    "install": "cd server && npm install && cd ../client && npm install",
+    "build": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Antony-Q/merning_is_fun.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Antony-Q/merning_is_fun/issues"
+  },
+  "homepage": "https://github.com/Antony-Q/merning_is_fun#readme",
+  "dependencies": {
+    "@apollo/client": "^3.6.6",
+    "apollo-server-core": "^3.8.2",
+    "apollo-server-express": "^3.8.2",
+    "bcrypt": "^5.0.1",
+    "concurrently": "^7.2.1",
+    "create-react-app": "^5.0.1",
+    "express": "^4.18.1",
+    "faker": "^6.6.6",
+    "graphql": "^16.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
+    "mongoose": "^6.3.6",
+    "nodemon": "^2.0.16",
+    "react": "^18.1.0",
+    "react-router-dom": "^6.3.0"
+  }
+}
