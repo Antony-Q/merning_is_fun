@@ -45,8 +45,7 @@ const resolvers = {
                     { _id: context.user._id },
                     { $push: { savedBooks: saveBookId } },
                     { new: true }
-                ).populate('savedBooks');
-
+                );
                 return updatedUser;
             }
             throw new AuthenticationError('You need to be logged in!');
@@ -55,10 +54,9 @@ const resolvers = {
             if (context.user) {
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $pull: { savedBooks: bookId } },
+                    { $pull: { savedBooks: { bookId: bookId } } },
                     { new: true }
                 );
-
                 return updatedUser;
             }
 
