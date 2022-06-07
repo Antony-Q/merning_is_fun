@@ -10,20 +10,22 @@ const typeDefs = gql`
     friends: [User]
   }
 
-  type Thought {
-    _id: ID
-    thoughtText: String
-    createdAt: String
-    username: String
-    reactionCount: Int
-    reactions: [Reaction]
+  type Book {
+    bookId: ID
+    title: String
+    author: String
+    description: String
+    image: []
+    link: String
   }
 
-  type Reaction {
-    _id: ID
-    reactionBody: String
-    createdAt: String
-    username: String
+  type BookInput {
+    bookId: ID
+    title: String
+    author: String
+    description: String
+    image: String
+    link: String
   }
 
   type Auth {
@@ -33,10 +35,6 @@ const typeDefs = gql`
 
   type Query {
     me: User
-    users: [User]
-    user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(_id: ID!): Thought
   }
 
   type Mutation {
